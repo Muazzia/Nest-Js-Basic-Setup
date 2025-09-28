@@ -33,7 +33,12 @@ export class UsersService {
   ];
 
   findAll() {
-    return this.users;
+    try {
+      throw new Error('Simulated error in findAll');
+      return this.users;
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 
   findOne(id: number) {
